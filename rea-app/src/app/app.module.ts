@@ -3,6 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import { ReaDataService } from './services/'
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -10,7 +13,9 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+      ReaDataService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
