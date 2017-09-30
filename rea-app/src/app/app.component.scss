@@ -1,0 +1,69 @@
+@import '../sass/mixins.scss';
+
+.results {
+    &-agency {
+        padding: 20px;
+        &__logo {
+            margin: 0 auto;
+            display: block;
+        }
+    }
+    &-listing {
+        padding-left: 0;
+        &__btn {
+            border: solid 1px #697684;
+            border-radius: 3px;
+            width: 80px;
+            height: 33px;
+            line-height: 33px;
+            text-align: center;
+            display: block;
+            font-size: 14px;
+            @include hover-transition;
+        }
+      &__items {
+        list-style: none;
+        display: inline-block;
+        &--price {
+            padding-top: 20px;
+            font-size: 40px;
+            font-weight: 100;
+        }
+      }
+      &__mainImage {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+      }
+    }
+    &-card {
+        margin-bottom: 20px;
+        @include hover-transition;
+        &:hover {
+            .results-listing__btn {
+                opacity: 1;
+                visibility: visible;
+                display: block;          
+            }
+        }
+    }
+  }
+
+  .saved {
+      &-wrapper {
+        overflow-y:scroll; 
+        position:fixed; 
+        top: 0; 
+        max-height:100vh;
+      }
+    &-card {
+      border-bottom: 1px solid black;
+    }
+    &-listing {
+        padding-left: 0;
+        list-style: none;
+        &__mainImage {
+            width: 100%;
+        }
+    }
+}

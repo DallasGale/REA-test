@@ -1,5 +1,69 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
+<div class="container">
+    <div fxLayout="row">
+        <div fxFlex="30%" class="results">
+            <div>
+                <div fxLayout="row">
+                    <div fxFlex>
+                        <h1>
+                        Welcome to {{title}}!
+                        </h1>
+                    </div>
+                </div>
+                <table cellpadding="0" cellspacing="0" class="results-table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <h4>Results</h4> 
+                                <div *ngFor="let item of data">
+                                    <md-card class="results-card" *ngFor="let property of item.results">
+                                        <div fxLayout="row" class="results-agency" [ngStyle]="{'background-color': property.agency.brandingColors.primary}">
+                                            <div fxFlex>
+                                            <img [attr.src]="property.agency.logo" class="results-agency__logo" />
+                                            </div>
+                                        </div>
+                                        <div fxLayout="row">
+                                            <div fxFlex>
+                                            <ul class="results-listing">
+                                                <img [attr.src]="property.mainImage" class="results-listing__mainImage" />
+                                                <li class="results-listing__items">
+                                                <div class="results-listing__items--price">
+                                                    {{ property.price }}
+                                                </div> 
+                                                </li>                                
+                                            </ul>
+                                            </div>
+                                        </div>
+                                        <button md-button class="results-listing__btn" (click)="saveProperty(property)">
+                                            SAVE 
+                                        </button>
+                                    </md-card>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div fxFlex="5%"></div>
+        <div fxFlex="75%">
+            <div class="saved-wrapper">
+                <h4>Saved Properties</h4>
+                <ul class="saved-listing">
+                    <li *ngFor="let property of savedProperties">
+                            <md-card class="saved-card">
+                                <div fxLayout="row">
+                                    <div fxFlex="20%">
+                                        <img [attr.src]="property.mainImage"  class="saved-listing__mainImage" />
+                                    </div>
+                                    <div fxFlex="80%">
+                                    </div>
+                                </div>
+                            </md-card>
+                        <button md-button (click)="deleteProperty(property)" [ngStyle]="{'background-color': property.agency.brandingColors.primary}">Delete</button>
+                        {{property}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
