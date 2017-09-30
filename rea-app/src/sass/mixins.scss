@@ -1,0 +1,6 @@
+@mixin hover-transition {
+    transition: all 0.2s;
+    &:hover {
+        transition: all 0.2s; 
+    }
+}

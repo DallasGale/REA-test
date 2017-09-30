@@ -1,9 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400');
 
 @import 'sass/base.scss';
 
 body {
   font-family: 'Roboto';
+  background-color: #efefef;
+}
+
+.container {
+  max-width:1200px;
+  margin: 0 auto;
+  display: block;
 }
