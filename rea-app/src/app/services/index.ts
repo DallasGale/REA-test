@@ -1,1 +1,1 @@
-export * from './rea-data.service';
+export * from './rea.service';
