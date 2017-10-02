@@ -2,6 +2,7 @@
   "name": "rea-app",
   "version": "0.0.0",
   "license": "MIT",
+  "author": "Dallas Gale",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
