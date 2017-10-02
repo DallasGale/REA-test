@@ -1,22 +1,20 @@
-import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ReaDataService } from '../../services'; // imported data service
 
 @Component({
     selector: 'app-results',
     templateUrl: './results.component.html',
-    styleUrls: ['./results.component.scss']
+    styleUrls: ['../../../sass/properties.scss']
 })
 
 
-export class ResultsComponent implements OnInit {
-    data: any;
+export class ResultsComponent {
+    @Input() property:ReaDataService;
 
+    public savedProperties = [];
     
-    constructor(private reaDataService: ReaDataService) { }
-
-    
-    // initialised the service
-    ngOnInit() {
-        this.data = this.reaDataService.getReaData();
+    saveProperty(property) {        
+        console.log(JSON.stringify(property));
+        this.savedProperties.push(property);
     }
 }

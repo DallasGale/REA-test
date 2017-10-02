@@ -1,0 +1,16 @@
+<div fxLayout="row" class="property-agency" [ngStyle]="{'background-color': property.agency.brandingColors.primary}">
+    <div fxFlex>
+        <img [attr.src]="property.agency.logo" class="property-agency__logo" />
+    </div>
+</div>
+<ul class="property-listing">
+    <li class="property-listing__items">
+        <img [attr.src]="property.mainImage" class="property-listing__mainImage" />
+    </li>
+
+    <li class="property-listing__items">
+        <div class="property-listing__items--price">
+            {{ property.price }}
+        </div> 
+    </li>                                
+</ul>
