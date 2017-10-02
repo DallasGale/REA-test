@@ -1,68 +1,68 @@
+<header class="header">
+    <div fxLayout="row" fxLayout.xs="column">
+        <div fxFlex="50%">
+            <div class="header__logo"></div>
+        </div>
+        <div fxFlex="50%">                
+            <h1 class="header__title">
+                Welcome to {{title}}!
+            </h1>
+        </div>
+    </div>
+</header>
 <div class="container">
     <div fxLayout="row">
-        <div fxFlex="30%" class="results">
-            <div>
-                <div fxLayout="row">
-                    <div fxFlex>
-                        <h1>
-                        Welcome to {{title}}!
-                        </h1>
-                    </div>
+        <div fxFlex="40%" fxFlex.sm="60%" fxFlex.xs="60%">
+            <div class="results-content">
+                <h2 class="title title__results">Results</h2>
+                <div class="results-listing">
+                    <md-card class="property-card" div *ngFor="let property of data.results" [attr.id]="'property_' + property.id">
+                        <app-results [property]="property" class="app-results"></app-results>
+                        <button md-button class="btn btn__save" (click)="saveProperty(property)">
+                            add 
+                        </button>
+                    </md-card>
                 </div>
-                <table cellpadding="0" cellspacing="0" class="results-table">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <h4>Results</h4> 
-                                <div *ngFor="let item of data">
-                                    <md-card class="results-card" *ngFor="let property of item.results">
-                                        <div fxLayout="row" class="results-agency" [ngStyle]="{'background-color': property.agency.brandingColors.primary}">
-                                            <div fxFlex>
-                                            <img [attr.src]="property.agency.logo" class="results-agency__logo" />
-                                            </div>
-                                        </div>
-                                        <div fxLayout="row">
-                                            <div fxFlex>
-                                            <ul class="results-listing">
-                                                <img [attr.src]="property.mainImage" class="results-listing__mainImage" />
-                                                <li class="results-listing__items">
-                                                <div class="results-listing__items--price">
-                                                    {{ property.price }}
-                                                </div> 
-                                                </li>                                
-                                            </ul>
-                                            </div>
-                                        </div>
-                                        <button md-button class="results-listing__btn" (click)="saveProperty(property)">
-                                            SAVE 
-                                        </button>
-                                    </md-card>
-                                </div>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
-        <div fxFlex="5%"></div>
-        <div fxFlex="75%">
-            <div class="saved-wrapper">
-                <h4>Saved Properties</h4>
-                <ul class="saved-listing">
-                    <li *ngFor="let property of savedProperties">
-                            <md-card class="saved-card">
+        <div fxFlex="60%" fxFlex.sm="40%" fxFlex.xs="40%">
+            <div class="saved-content">
+                <div class="saved-wrapper">
+                    <h2 class="title title__saved">Saved Properties</h2>
+                    <div class="saved-listing" id="parentSaved">
+                        <!-- Initital Saved property -->
+                        <md-card class="property-card" *ngFor="let property of data.saved" [attr.id]="'property_' + property.id">
+                            <div class="property-agency" [ngStyle]="{'background-color': property.agency.brandingColors.primary}">
                                 <div fxLayout="row">
-                                    <div fxFlex="20%">
-                                        <img [attr.src]="property.mainImage"  class="saved-listing__mainImage" />
-                                    </div>
-                                    <div fxFlex="80%">
+                                    <div fxFlex>
+                                        <img [attr.src]="property.agency.logo" class="property-agency__logo" />
                                     </div>
                                 </div>
-                            </md-card>
-                        <button md-button (click)="deleteProperty(property)" [ngStyle]="{'background-color': property.agency.brandingColors.primary}">Delete</button>
-                        {{property}}
-                    </li>
-                </ul>
+                            </div>
+                            <ul class="property-listing">
+                                <li class="property-listing__items">
+                                    <img [attr.src]="property.mainImage" class="property-listing__mainImage" />
+                                </li>
+
+                                <li class="property-listing__items">
+                                    <div class="property-listing__items--price saved">
+                                        {{ property.price }}
+                                    </div> 
+                                </li>                                
+                            </ul>
+                            <button md-button (click)="deleteInitialSavedProperty(property)" class="btn btn__delete">
+                                    remove
+                                </button>
+                        </md-card>
+                        <!-- Saved Properties -->
+                        <md-card class="property-card" *ngFor="let property of savedProperties" [attr.id]="'property_' + property.id">
+                            <app-saved-properties [property]="property" class="app-saved-properties"></app-saved-properties>
+                            <button md-button (click)="deleteProperty(property)" class="btn btn__delete">
+                                remove
+                            </button>
+                        </md-card>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
