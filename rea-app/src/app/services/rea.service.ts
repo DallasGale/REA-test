@@ -1,16 +1,11 @@
 import { Injectable } from '@angular/core';
 
+
+
 @Injectable()
 export class ReaDataService {
 
-    getReaData() {
-        return reaData;
-    }
-}
-
-
-const reaData = [
-    {
+    public PROPERTIES:Object = {
         results: [
             {
                 price: '$726,500',
@@ -61,4 +56,4 @@ const reaData = [
             }
         ]
     }
-];
+}
