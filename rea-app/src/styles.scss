@@ -6,11 +6,17 @@
 
 body {
   font-family: 'Roboto';
-  background-color: #efefef;
+  background-color: #1e262b;
+  height: 100vh;
+  margin: 0 0 0 0;
 }
 
 .container {
   max-width:1200px;
   margin: 0 auto;
+  padding: 140px 20px;
   display: block;
+  @include respond-to(phone-down) {
+    padding-top:200px;
+  }
 }

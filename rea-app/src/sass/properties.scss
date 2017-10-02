@@ -1,0 +1,61 @@
+@import './mixins.scss';
+
+.property {
+    &-agency {
+        padding: 9px;
+        &__logo {
+            width:100%;
+            max-width: 100px;
+            display: block;
+        }
+    }
+    &-card {
+        max-width: 300px;
+        margin-bottom: 20px;
+        @include hover-transition;
+        &:hover {
+            .btn {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+        @include respond-to(phone-down) {
+            max-width: 100%;
+            margin-right: 10px;
+        }
+    }
+    &-listing {
+        margin-top: 0;
+        padding-left: 0;
+       
+      &__items {
+        list-style: none;
+        display: block;
+        &--price {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 40px;
+            font-weight: 100;
+            &.saved {
+                font-size: 26px;
+            }
+        }
+      }
+      &__mainImage {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+      }
+    }
+  }
+
+  .saved-listing {
+    .property-card {
+        margin-right: 20px;
+        float: left;
+        max-width: 200px;
+        @include respond-to(phone-down) {
+            max-width: 100%;
+        }
+    }
+}

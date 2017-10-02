@@ -1,0 +1,44 @@
+@import './mixins.scss';
+
+.btn {
+    margin: 0 auto;
+    display: block;
+    opacity: 0;
+    position: absolute;
+    left: 0; 
+    right: 0;
+    visibility: hidden;
+    color: #ffffff !important;
+    width: 80px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    font-size: 14px;
+    @include hover-transition;    
+    &__delete {
+        background-color: #e4002b;
+    }
+    &__save {
+        background: #00c694;
+    }
+}
+
+
+.title {
+    font-weight: 300;
+    color:white;
+    background: #1e262b;
+    padding: 10px 20px;
+    border: 1px solid white;
+    position: fixed;
+    font-size: 18px;
+    z-index: 10;
+    top: 72px;
+    width: auto;
+
+    @include respond-to(phone-down) {
+        font-size: 12px;
+        text-align: center;
+        top: 142px;
+    }
+}
